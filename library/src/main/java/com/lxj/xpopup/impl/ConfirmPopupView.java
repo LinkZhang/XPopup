@@ -41,6 +41,14 @@ public class ConfirmPopupView extends CenterPopupView implements View.OnClickLis
         tv_cancel.setOnClickListener(this);
         tv_confirm.setOnClickListener(this);
 
+        if(!TextUtils.isEmpty(cancelText)) {
+            tv_cancel.setText(cancelText);
+        }
+
+        if(!TextUtils.isEmpty(confirmText)) {
+            tv_confirm.setText(confirmText);
+        }
+
         if(!TextUtils.isEmpty(title)){
             tv_title.setText(title);
         }
@@ -64,11 +72,16 @@ public class ConfirmPopupView extends CenterPopupView implements View.OnClickLis
         return this;
     }
     String title;
+    String cancelText;
+    String confirmText;
     String content;
     String hint;
-    public ConfirmPopupView setTitleContent(String title, String content, String hint){
+    public ConfirmPopupView setTitleContent(String title, String content, String hint,String
+            cancelText,String confirmText){
         this.title = title;
         this.content = content;
+        this.cancelText = cancelText;
+        this.confirmText = confirmText;
         this.hint = hint;
         return this;
     }

@@ -17,7 +17,6 @@ import com.lxj.xpopupdemo.custom.CustomAttachPopup2;
 import com.lxj.xpopupdemo.custom.CustomDrawerPopupView;
 import com.lxj.xpopupdemo.custom.CustomEditTextBottomPopup;
 import com.lxj.xpopupdemo.custom.CustomFullScreenPopup;
-import com.lxj.xpopupdemo.custom.ListDrawerPopupView;
 import com.lxj.xpopupdemo.custom.ZhihuCommentPopup;
 
 /**
@@ -96,7 +95,7 @@ public class QuickStartDemo extends BaseFragment implements View.OnClickListener
                             public void onConfirm() {
                                 toast("click confirm");
                             }
-                        }, null, false)
+                        })
                         .show();
                 break;
             case R.id.btnShowInputConfirm: //带确认和取消按钮，输入框的弹窗

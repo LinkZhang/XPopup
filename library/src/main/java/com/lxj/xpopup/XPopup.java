@@ -298,10 +298,11 @@ public class XPopup {
          * @param isHideCancel    是否隐藏取消按钮
          * @return
          */
-        public ConfirmPopupView asConfirm(String title, String content, OnConfirmListener confirmListener, OnCancelListener cancelListener, boolean isHideCancel) {
+        public ConfirmPopupView asConfirm(String title, String content,String cancelTitle,String
+                confirmText, OnConfirmListener confirmListener, OnCancelListener cancelListener, boolean isHideCancel) {
             popupType(PopupType.Center);
             ConfirmPopupView popupView = new ConfirmPopupView(this.context);
-            popupView.setTitleContent(title, content, null);
+            popupView.setTitleContent(title, content,cancelTitle,confirmText, null);
             popupView.setListener(confirmListener, cancelListener);
             if (isHideCancel) popupView.hideCancelBtn();
             popupView.popupInfo = this.popupInfo;
@@ -309,12 +310,19 @@ public class XPopup {
         }
 
         public ConfirmPopupView asConfirm(String title, String content, OnConfirmListener confirmListener, OnCancelListener cancelListener) {
-            return asConfirm(title, content, confirmListener, null, false);
+            return asConfirm(title, content, null,null,confirmListener, null, false);
         }
 
         public ConfirmPopupView asConfirm(String title, String content, OnConfirmListener confirmListener) {
             return asConfirm(title, content, confirmListener, null);
         }
+
+        public ConfirmPopupView asConfirm(String title, String content,String cancelTitle,String
+                confirmText,
+                                          OnConfirmListener confirmListener) {
+            return asConfirm(title, content,cancelTitle,confirmText, confirmListener, null,false);
+        }
+
 
         /**
          * 显示带有输入框，确认和取消对话框
@@ -329,7 +337,7 @@ public class XPopup {
         public InputConfirmPopupView asInputConfirm(String title, String content, String hint, OnInputConfirmListener confirmListener, OnCancelListener cancelListener) {
             popupType(PopupType.Center);
             InputConfirmPopupView popupView = new InputConfirmPopupView(this.context);
-            popupView.setTitleContent(title, content, hint);
+            popupView.setTitleContent(title, content,null,null, hint);
             popupView.setListener(confirmListener, cancelListener);
             popupView.popupInfo = this.popupInfo;
             return popupView;
